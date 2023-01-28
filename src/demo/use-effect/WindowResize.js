@@ -55,4 +55,12 @@ export default WindowResize;
  * - Callback is invoked after component is mounted
  * - Cleanup function is invoked before component is unmounted
  * - Cleanup function is invoked before callback is invoked again (from 2nd call)
+ * 
+ * ==> 
+ * - First time: 
+ * 	UI is render -> Cb is invoked 
+ * - Next: 
+ * 	State change -> Mutate virtual DOM -> UI is re-render -> Dependencies change -> cleanup func is invoked (used previous state) -> Cb is invoked
+ * - Final:
+ * 	Component is unmounted -> cleanup func is invoked (used current state)
  */

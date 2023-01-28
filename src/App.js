@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-// import Content from './demo/Counter';
+// import Content from './demo/use-state/Counter';
 // import Content from './demo/WindowResize';
-import Content from './demo/ImagePicker';
+// import Content from './demo/use-effect/ImagePicker';
+import Content from './demo/use-layout-effect/ReCount';
 
 
 function App() {

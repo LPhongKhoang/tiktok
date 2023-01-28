@@ -13,13 +13,23 @@ function Counter() {
   });
 
   const handleIncreaseOneStep = () => {
+    // W1. More Correct
+    // setCounter(prev => prev +1);
+
+    // W2. Correct
     setCounter(counter + 1);
   }
 
   const handleIncreaseThreeStep = () => {
+    // W1. Correct
     setCounter(prev => prev +1);
     setCounter(prev => prev +1);
     setCounter(prev => prev +1);
+
+    // W2. Wrong
+    // setCounter(counter + 1);
+    // setCounter(counter + 1);
+    // setCounter(counter + 1);
   }
 
   const handleIncreaseTotal = () => {
@@ -40,3 +50,20 @@ function Counter() {
 }
 
 export default Counter;
+
+/**
+ * 1. useState
+ * - When set new value for states
+ *  -> React will asynchronously update states
+ *  -> After states are really changed
+ *  -> Mutate Virtual DOM
+ *  -> others .... 
+ *  -> Render real DOM (real UI)
+ *  -> others ....
+ *  
+ *  
+ * - Set state
+ *  - Want to change state with independent value --> setXXX(value)
+ *  - Want to change state with dependent value with previous one --> setXXX(prev => ...)
+ * 
+ */

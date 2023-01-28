@@ -5,8 +5,19 @@ function ImagePicker(props) {
 	const [avatar, setAvatar] = useState();
 
 	useEffect(() => {
+		/**
+		* - First time: 
+		* 	UI is render -> Cb is invoked 
+		* - Next: 
+		* 	State change -> Mutate virtual DOM -> UI is re-render -> Dependencies change -> cleanup func is invoked (used previous state) -> Cb is invoked
+		* - Final:
+		* 	Component is unmounted -> cleanup func is invoked (used current state)
+		 */
+		console.log('Cb func - Avatar: ', avatar?.preview);
+
 		// clean up func
 		return () => {
+			console.log('cleanup func - Avatar: ', avatar?.preview);
 			avatar && URL.revokeObjectURL(avatar.preview);
 		}
 	}, [avatar]);
@@ -22,6 +33,8 @@ function ImagePicker(props) {
 
 		setAvatar({preview: newPreviewUrl});
 	}
+
+	console.log('Function render - Avatar: ', avatar?.preview);
 
 	return (
 		<div>
