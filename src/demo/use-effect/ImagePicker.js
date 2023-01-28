@@ -9,7 +9,10 @@ function ImagePicker(props) {
 		* - First time: 
 		* 	UI is render -> Cb is invoked 
 		* - Next: 
-		* 	State change -> Mutate virtual DOM -> UI is re-render -> Dependencies change -> cleanup func is invoked (used previous state) -> Cb is invoked
+		* 	State change -> Mutate virtual DOM -> UI is re-render 
+				-> Dependencies change 
+				-> cleanup func is invoked (used previous state) 
+				-> Cb is invoked (used latest state)
 		* - Final:
 		* 	Component is unmounted -> cleanup func is invoked (used current state)
 		 */

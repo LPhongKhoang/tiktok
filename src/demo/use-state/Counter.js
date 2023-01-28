@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ContentMemo from '../hoc/ContentMemo';
 
 const totalOrders = [30, 42, 45, 34, 21];
 
@@ -11,6 +12,8 @@ function Counter() {
     console.log('func as argument of useState run only one time');
     return totalOrders.reduce((s, x) => s+x);
   });
+
+  const [user, setUser] = useState({name: 'Unknown'});
 
   const handleIncreaseOneStep = () => {
     // W1. More Correct
@@ -38,6 +41,7 @@ function Counter() {
 
   return (
     <div className="Counter">
+      <ContentMemo counter={counter} user={user} />
       <h1>Welcome</h1>
       <h1>Total: {total}</h1>
       <h1>Counter: {counter}</h1>
@@ -65,5 +69,11 @@ export default Counter;
  * - Set state
  *  - Want to change state with independent value --> setXXX(value)
  *  - Want to change state with dependent value with previous one --> setXXX(prev => ...)
+ * 
+ * 2. Function component
+ * --> 
+ *  - Everything inside function is newly initiate 
+  (ex: normal variables point to primitive data, function, objects...)
+ *  - except variables are assigned by HOOKS (useState, useCallback, ...)
  * 
  */
