@@ -5,7 +5,9 @@ import './App.css';
 // import Content from './demo/use-effect/ImagePicker';
 // import Content from './demo/use-layout-effect/ReCount';
 // import Content from './demo/use-ref/CountDown';
-import Content from './demo/use-memo/add-product';
+// import Content from './demo/use-memo/add-product';
+// import Content from './demo/use-reducer/Volume';
+import Content from './demo/use-reducer/TaskToday';
 
 
 function App() {
@@ -18,7 +20,9 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={handleClickToggle}>Toggle</button>
+      <div style={{margin: '100px 0'}}>
+        <button onClick={handleClickToggle}>Toggle</button>
+      </div>
       {
         isShow ? <Content /> : null
       }
