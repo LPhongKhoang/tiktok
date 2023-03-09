@@ -1,4 +1,4 @@
-import { publicRoutes } from "../../../routes";
+import { publicRoutes } from "../../../../routes";
 
 function Header() {
   return <div>
